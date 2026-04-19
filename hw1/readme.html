@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown Export</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/md-editor-v3/lib/preview.css">
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      max-width: 800px; 
+      margin: 0 auto; 
+      padding: 20px; 
+    }
+  </style>
+</head>
+<body>
+  <div class="markdown-preview">
+    <div id="md-editor-v-0-preview" class="md-editor-preview default-theme md-editor-scrn"><h1 data-line="0" id="Gomoku 作業說明：hw1_學號.py（白子棋手程式）">Gomoku 作業說明：<code>hw1_學號.py</code>（白子棋手程式）</h1>
+<h2 data-line="2" id="1. 作業目標">1. 作業目標</h2>
+<p data-line="4">請撰寫一個 Python 程式 <code>hw1_學號.py</code>，作為 <strong>白子方</strong> 的五子棋棋手。<br>
+黑子方我們提供 <code>engine_minimax.py</code> 作為簡單參考對手(實際評分用的黑子程式不公布、且會比較強一點)；你的 <code>hw1_學號.py</code> 需要能與裁判程式透過 <strong>stdin / stdout</strong> 溝通，自動完成對弈。</p>
+<p data-line="7">棋盤大小固定為 <strong>15 × 15</strong>。</p>
+<hr data-line="9">
+<h2 data-line="11" id="2. 你需要提交的檔案">2. 你需要提交的檔案</h2>
+<p data-line="13">請提交：</p>
+
+        <details data-line="15" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">text</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"></circle><path d="m14 16-4-4 4-4"></path></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-text" language="text"><span class="md-editor-code-block">hw1_學號.py (e.g.hw1_11227100.py)</span><span rn-wrapper="" aria-hidden="true"><span></span></span></code></pre>
+
+        </details>
+      <p data-line="20">檔名必須正確。評測時，助教會把你的 <code>hw1_學號.py</code> 當作白子方啟動。</p>
+<hr data-line="22">
+<h2 data-line="24" id="3. 程式執行方式">3. 程式執行方式</h2>
+<p data-line="26">你的程式會被裁判程式以 subprocess 方式啟動，並透過標準輸入 / 輸出交換訊息。<br>
+因此你的 <code>hw1_學號.py</code> 必須：</p>
+<ol data-line="29">
+<li data-line="29">從 <code>stdin</code> 讀取裁判送來的指令。</li>
+<li data-line="30">在輪到你下棋時，輸出一行：
+        <details data-line="31" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">text</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"></circle><path d="m14 16-4-4 4-4"></path></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-text" language="text"><span class="md-editor-code-block">MOVE x y</span><span rn-wrapper="" aria-hidden="true"><span></span></span></code></pre>
+
+        </details>
+      </li>
+<li data-line="34">每次輸出後務必 <code>flush=True</code>。</li>
+</ol>
+<hr data-line="36">
+<h2 data-line="38" id="4. 通訊協定（I/O 規則）">4. 通訊協定（I/O 規則）</h2>
+<p data-line="40">你的 <code>hw1_學號.py</code> 需要處理以下三種指令：</p>
+<h3 data-line="42" id="(A) START">(A) <code>START</code></h3>
+<p data-line="44">裁判在對局開始時會送：</p>
+
+        <details data-line="46" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">text</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"></circle><path d="m14 16-4-4 4-4"></path></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-text" language="text"><span class="md-editor-code-block">START 15 WHITE</span><span rn-wrapper="" aria-hidden="true"><span></span></span></code></pre>
+
+        </details>
+      <p data-line="50">一般格式為：</p>
+
+        <details data-line="52" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">text</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"></circle><path d="m14 16-4-4 4-4"></path></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-text" language="text"><span class="md-editor-code-block">START &lt;board_size&gt; &lt;role&gt;</span><span rn-wrapper="" aria-hidden="true"><span></span></span></code></pre>
+
+        </details>
+      <p data-line="56">其中：</p>
+<ul data-line="57">
+<li data-line="57"><code>board_size</code>：棋盤大小，本作業固定為 15</li>
+<li data-line="58"><code>role</code>：你的顏色方。對 <code>hw1_學號.py</code> 而言，評測時固定會是 <code>WHITE</code></li>
+</ul>
+<hr data-line="60">
+<h3 data-line="62" id="(B) TURN">(B) <code>TURN</code></h3>
+<p data-line="64">當輪到你下棋時，裁判會送：</p>
+
+        <details data-line="66" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">text</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"></circle><path d="m14 16-4-4 4-4"></path></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-text" language="text"><span class="md-editor-code-block">TURN
+BOARD
+&lt;第 0 列 15 個整數&gt;
+&lt;第 1 列 15 個整數&gt;
+...
+&lt;第 14 列 15 個整數&gt;
+END_BOARD</span><span rn-wrapper="" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+        </details>
+      <p data-line="76">盤面上的整數編碼為：</p>
+<ul data-line="77">
+<li data-line="77"><code>0</code>：空格</li>
+<li data-line="78"><code>1</code>：黑子</li>
+<li data-line="79"><code>2</code>：白子</li>
+</ul>
+<p data-line="81">你的程式收到這段資料後，必須回傳：</p>
+
+        <details data-line="83" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">text</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"></circle><path d="m14 16-4-4 4-4"></path></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-text" language="text"><span class="md-editor-code-block">MOVE x y</span><span rn-wrapper="" aria-hidden="true"><span></span></span></code></pre>
+
+        </details>
+      <hr data-line="87">
+<h3 data-line="89" id="(C) END">(C) <code>END</code></h3>
+<p data-line="91">當對局結束時，裁判會送出：</p>
+
+        <details data-line="93" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">text</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"></circle><path d="m14 16-4-4 4-4"></path></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-text" language="text"><span class="md-editor-code-block">END WIN</span><span rn-wrapper="" aria-hidden="true"><span></span></span></code></pre>
+
+        </details>
+      <p data-line="97">或</p>
+
+        <details data-line="99" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">text</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"></circle><path d="m14 16-4-4 4-4"></path></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-text" language="text"><span class="md-editor-code-block">END LOSE</span><span rn-wrapper="" aria-hidden="true"><span></span></span></code></pre>
+
+        </details>
+      <p data-line="103">或</p>
+
+        <details data-line="105" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">text</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"></circle><path d="m14 16-4-4 4-4"></path></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-text" language="text"><span class="md-editor-code-block">END DRAW</span><span rn-wrapper="" aria-hidden="true"><span></span></span></code></pre>
+
+        </details>
+      <p data-line="109">你的程式收到 <code>END</code> 後，直接結束即可。</p>
+<hr data-line="111">
+<h2 data-line="113" id="5. 座標格式">5. 座標格式</h2>
+<p data-line="115">你輸出的落子格式為：</p>
+
+        <details data-line="117" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">text</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"></circle><path d="m14 16-4-4 4-4"></path></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-text" language="text"><span class="md-editor-code-block">MOVE x y</span><span rn-wrapper="" aria-hidden="true"><span></span></span></code></pre>
+
+        </details>
+      <p data-line="121">其中：</p>
+<ul data-line="122">
+<li data-line="122"><code>x</code>：欄座標，由左至右範圍 <code>0 ~ 14</code></li>
+<li data-line="123"><code>y</code>：列座標，由上至下範圍 <code>0 ~ 14</code></li>
+</ul>
+<p data-line="125">這裡採用 <strong>0-based index</strong>。<br>
+例如：</p>
+<ul data-line="127">
+<li data-line="127">左上角是 <code>MOVE 0 0</code></li>
+<li data-line="128">棋盤中心是 <code>MOVE 7 7</code></li>
+</ul>
+<hr data-line="130">
+<h2 data-line="132" id="6. 合法落子規則">6. 合法落子規則</h2>
+<p data-line="134">你的程式輸出的 <code>MOVE x y</code> 必須是合法著，否則會被判負。</p>
+<p data-line="136">基本合法條件：</p>
+<ol data-line="137">
+<li data-line="137">座標必須在棋盤內。</li>
+<li data-line="138">該位置必須為空格。</li>
+</ol>
+<hr data-line="140">
+<h2 data-line="142" id="7. 白子不需考慮禁手">7. 白子不需考慮禁手</h2>
+<p data-line="144">本作業你寫的是 <strong>白子方 <code>hw1_學號.py</code></strong>，因此 <strong>不需要考慮黑棋禁手規則</strong>（例如三三、四四、長連禁手）。</p>
+<p data-line="146">也就是說，對白棋而言，只要：</p>
+<ul data-line="147">
+<li data-line="147">落點在棋盤內</li>
+<li data-line="148">該格為空</li>
+</ul>
+<p data-line="150">即可視為合法。</p>
+<p data-line="152">另外，勝利條件也請注意：</p>
+<ul data-line="153">
+<li data-line="153"><strong>黑棋</strong>：必須剛好五連，且不能長連</li>
+<li data-line="154"><strong>白棋</strong>：五連以上即可獲勝</li>
+</ul>
+<p data-line="156">因此你在設計 <code>hw.py</code> 時，只需要專注於白棋策略，不必實作黑棋禁手判斷。</p>
+<hr data-line="158">
+<h2 data-line="160" id="8. 時間限制">8. 時間限制</h2>
+<p data-line="162">每一步落子時間上限為 <strong>5 秒</strong>。</p>
+<p data-line="164">若你的程式超時：</p>
+<ul data-line="165">
+<li data-line="165">裁判會視為 timeout</li>
+<li data-line="166">若當下仍有合法著，裁判會隨機替你補下一個合法著</li>
+<li data-line="167">這會影響你的對局品質與最終得分</li>
+</ul>
+<p data-line="169">因此建議你的 <code>hw.py</code>：</p>
+<ul data-line="170">
+<li data-line="170">盡量在 5 秒內完成落子</li>
+<li data-line="171">最好保留安全餘裕，例如控制在 4 秒內</li>
+</ul>
+<hr data-line="173">
+<h2 data-line="175" id="9. 禁止事項">9. 禁止事項</h2>
+<h3 data-line="177" id="(1) 不可使用 random 或其他隨機策略">(1) 不可使用 <code>random</code> 或其他隨機策略</h3>
+<p data-line="179">本作業要求你的 <code>hw1_學號.py</code> 必須是 <strong>確定性</strong> 程式，<strong>不可引用 <code>random</code> 模組</strong>，也不可用亂數選步。<br>
+同一個盤面輸入，應該產生同樣的輸出。</p>
+<h3 data-line="182" id="(2) 不可輸出多餘訊息到 stdout">(2) 不可輸出多餘訊息到 stdout</h3>
+<p data-line="184">裁判只接受：</p>
+
+        <details data-line="186" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">text</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"></circle><path d="m14 16-4-4 4-4"></path></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-text" language="text"><span class="md-editor-code-block">MOVE x y</span><span rn-wrapper="" aria-hidden="true"><span></span></span></code></pre>
+
+        </details>
+      <p data-line="190">若你在 stdout 額外輸出 debug 訊息、提示文字或其他內容，可能導致裁判解析失敗。</p>
+<p data-line="192">如需除錯，請改輸出到 <code>stderr</code>，或自行在本機測試時使用。</p>
+<hr data-line="194">
+<h2 data-line="196" id="10. 白子計分方式">10. 白子計分方式</h2>
+<p data-line="198">本作業以 <strong>白子成績</strong> 為主要參考，白子的分數計算方式如下：</p>
+<h3 data-line="200" id="白棋獲勝下越早越好(224分~117分)">白棋獲勝下越早越好(224分~117分)</h3>
+
+        <details data-line="202" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">text</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"></circle><path d="m14 16-4-4 4-4"></path></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-text" language="text"><span class="md-editor-code-block">234 - 白棋手數 - 白棋平均每步時間(四捨五入到 0.1 秒)</span><span rn-wrapper="" aria-hidden="true"><span></span></span></code></pre>
+
+        </details>
+      <h3 data-line="206" id="和局(117分~112分)">和局(117分~112分)</h3>
+
+        <details data-line="208" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">text</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"></circle><path d="m14 16-4-4 4-4"></path></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-text" language="text"><span class="md-editor-code-block">117 - 白棋平均每步時間(四捨五入到 0.1 秒)</span><span rn-wrapper="" aria-hidden="true"><span></span></span></code></pre>
+
+        </details>
+      <h3 data-line="212" id="白棋落敗下越晚越好(112分~0分)">白棋落敗下越晚越好(112分~0分)</h3>
+
+        <details data-line="214" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">text</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"></circle><path d="m14 16-4-4 4-4"></path></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-text" language="text"><span class="md-editor-code-block">白棋手數 - 白棋平均每步時間(四捨五入到 0.1 秒)</span><span rn-wrapper="" aria-hidden="true"><span></span></span></code></pre>
+
+        </details>
+      <p data-line="218">因此，一個好的 <code>hw1_學號.py</code> 不只要避免輸棋，也要盡量：</p>
+<ul data-line="219">
+<li data-line="219">贏得更快</li>
+<li data-line="220">平均思考時間更短</li>
+</ul>
+<hr data-line="222">
+<h2 data-line="224" id="11. 對局結束條件">11. 對局結束條件</h2>
+<p data-line="226">對局可能因以下原因結束：</p>
+<ol data-line="228">
+<li data-line="228">某方形成勝利條件</li>
+<li data-line="229">棋盤下滿，判和局</li>
+<li data-line="230">某方輸出非法著</li>
+<li data-line="231">某方發生 protocol / runtime error</li>
+<li data-line="232">某方超時且後續被判負</li>
+</ol>
+<hr data-line="234">
+<h2 data-line="236" id="12. 建議的 hw.py 主程式架構">12. 建議的 <code>hw.py</code> 主程式架構</h2>
+<p data-line="238">你可以使用下列基本架構作為起點：</p>
+
+        <details data-line="240" class="md-editor-code">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">python</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"></circle><path d="m14 16-4-4 4-4"></path></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-python" language="python"><span class="md-editor-code-block">import sys
+
+
+def read_board(stream, size):
+    line = stream.readline().strip()
+    if line != "BOARD":
+        raise ValueError("expected BOARD")
+
+    board = []
+    for _ in range(size):
+        row = list(map(int, stream.readline().split()))
+        if len(row) != size:
+            raise ValueError("invalid row length")
+        board.append(row)
+
+    line = stream.readline().strip()
+    if line != "END_BOARD":
+        raise ValueError("expected END_BOARD")
+
+    return board
+
+
+def choose_move(board):
+    # 請在此實作你的白棋策略
+    # 回傳 (x, y)
+    return 7, 7
+
+
+def main():
+    board_size = None
+    my_role = None
+
+    for raw in sys.stdin:
+        line = raw.strip()
+        if not line:
+            continue
+
+        parts = line.split()
+
+        if parts[0] == "START":
+            board_size = int(parts[1])
+            my_role = parts[2]
+
+        elif parts[0] == "TURN":
+            board = read_board(sys.stdin, board_size)
+            x, y = choose_move(board)
+            print(f"MOVE {x} {y}", flush=True)
+
+        elif parts[0] == "END":
+            break
+
+
+if __name__ == "__main__":
+    main()</span><span rn-wrapper="" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+        </details>
+      <hr data-line="297">
+<h2 data-line="299" id="13. I/O 範例">13. I/O 範例</h2>
+<h3 data-line="301" id="輸入">輸入</h3>
+
+        <details data-line="303" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">text</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"></circle><path d="m14 16-4-4 4-4"></path></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-text" language="text"><span class="md-editor-code-block">START 15 WHITE
+TURN
+BOARD
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+END_BOARD</span><span rn-wrapper="" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+        </details>
+      <h3 data-line="325" id="輸出">輸出</h3>
+
+        <details data-line="327" class="md-editor-code" open="">
+          <summary class="md-editor-code-head">
+            <div class="md-editor-code-flag"><span></span><span></span><span></span></div>
+            <div class="md-editor-code-action">
+              <span class="md-editor-code-lang">text</span>
+              <span class="md-editor-copy-button" data-tips="复制代码">复制代码</span>
+              
+              <span class="md-editor-collapse-tips"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-chevron-left md-editor-icon"><circle cx="12" cy="12" r="10"></circle><path d="m14 16-4-4 4-4"></path></svg></span>
+            </div>
+          </summary>
+          <pre><code class="language-text" language="text"><span class="md-editor-code-block">MOVE 7 8</span><span rn-wrapper="" aria-hidden="true"><span></span></span></code></pre>
+
+        </details>
+      <hr data-line="331">
+<h2 data-line="333" id="14. 實作建議">14. 實作建議</h2>
+<p data-line="335">你可以自由設計白棋策略，例如：</p>
+<ul data-line="336">
+<li data-line="336">先檢查自己是否有立即勝著</li>
+<li data-line="337">若無，先堵住黑棋可能的連線</li>
+<li data-line="338">對候選著法做簡單評分</li>
+<li data-line="339">使用 minimax / negamax / alpha-beta pruning</li>
+<li data-line="340">或自行設計更有效率的方法</li>
+</ul>
+<p data-line="342">但請注意以下原則：</p>
+<ul data-line="343">
+<li data-line="343">不可使用 <code>random</code></li>
+<li data-line="344">不需考慮黑棋禁手實作</li>
+<li data-line="345">需符合裁判 I/O 規則</li>
+<li data-line="346">需在 5 秒內穩定輸出落子</li>
+</ul>
+<hr data-line="348">
+<h2 data-line="350" id="15. 總結">15. 總結</h2>
+<p data-line="352">你的 <code>hw1_學號.py</code> 必須做到：</p>
+<ol data-line="354">
+<li data-line="354">正確讀取裁判送來的 <code>START</code>、<code>TURN</code>、<code>END</code></li>
+<li data-line="355">在 <code>TURN</code> 時根據盤面輸出合法的 <code>MOVE x y</code></li>
+<li data-line="356">不使用隨機函式</li>
+<li data-line="357">不需處理禁手</li>
+<li data-line="358">儘量提升白子的最終分數</li>
+</ol>
+<p data-line="360">祝你實作順利。</p>
+</div>
+  </div>
+</body>
+</html>
