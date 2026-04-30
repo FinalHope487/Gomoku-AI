@@ -10,7 +10,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(message)s',
     handlers=[
-        logging.FileHandler("v25_benchmark_results.log", encoding='utf-8'),
+        logging.FileHandler("variants_benchmark_results.log", encoding='utf-8'),
         logging.StreamHandler()
     ]
 )
@@ -40,7 +40,7 @@ def run_match(black_engine, white_engine):
         w_times = [float(m) for m in re.findall(r"Move \d+: WHITE -> \S+\s+\[([\d.]+)s\]", output)]
         
         def get_stats(times):
-            if not times: return "N/A", "N/A", "N/A"
+            if not times: return "0.000", "0.000", "0.000"
             return f"{min(times):.3f}", f"{(sum(times)/len(times)):.3f}", f"{max(times):.3f}"
             
         b_min, b_avg, b_max = get_stats(b_times)
@@ -68,15 +68,21 @@ def run_match(black_engine, white_engine):
         }
 
 def main():
-    # Define your engines here.
+    # Opponents
     black_engines = [
         "hw1/engine_minimax.py",
         "hw1/engine_black2_var1.py",
         "hw1/engine_black3_var2.py",
         "hw1/engine_black4_aggro.py"
     ]
+    # Variants to test
     white_engines = [
-        "hw1_11427234_v24-2.py"
+        "hw1_11427234_v24.py",
+        "hw1_11427234_v24-1.py",
+        "hw1_11427234_v24-2.py",
+        "hw1_11427234_v25.py",
+        "hw1_11427234_v25-1.py",
+        "hw1_11427234_v25-2.py"
     ]
     
     # Check if files exist
@@ -85,14 +91,12 @@ def main():
             logging.error(f"Engine file not found: {engine}")
             return
             
-    # Each different pairing only tests 1 time
-    matches = [(b, w) for b in list(dict.fromkeys(black_engines)) for w in list(dict.fromkeys(white_engines))]
+    matches = [(b, w) for b in black_engines for w in white_engines]
     total_matches = len(matches)
     
-    logging.info(f"Starting benchmark for {total_matches} matches using multiprocessing...")
+    logging.info(f"Starting benchmark for {total_matches} matches...")
     
     results = []
-    # Use max_workers=None to let it automatically choose the number of processors
     with concurrent.futures.ProcessPoolExecutor(max_workers=4) as executor:
         future_to_match = {executor.submit(run_match, b, w): (b, w) for b, w in matches}
         
@@ -104,9 +108,8 @@ def main():
                 results.append(data)
                 completed += 1
                 if data["status"] == "success":
-                    msg = (f"Match {completed}/{total_matches} | Black: {b} vs White: {w} | Winner: {data['winner']} | Time: {data['time']:.2f}s\n"
-                           f"    Black Min/Avg/Max: {data['b_stats'][0]}/{data['b_stats'][1]}/{data['b_stats'][2]}s\n"
-                           f"    White Min/Avg/Max: {data['w_stats'][0]}/{data['w_stats'][1]}/{data['w_stats'][2]}s")
+                    msg = (f"Match {completed}/{total_matches} | Black: {b} vs White: {w} | Winner: {data['winner']} | Total Time: {data['time']:.2f}s\n"
+                           f"    Black Avg Time: {data['b_stats'][1]}s | White Avg Time: {data['w_stats'][1]}s")
                     logging.info(msg)
                 else:
                     msg = f"Match {completed}/{total_matches} | Black: {b} vs White: {w} | ERROR: {data['error']}"
@@ -114,24 +117,18 @@ def main():
             except Exception as exc:
                 logging.error(f"Match {b} vs {w} generated an exception: {exc}")
 
-    # Summary
+    # Summary report generation (internal)
     logging.info("="*40)
     logging.info("BENCHMARK SUMMARY")
     logging.info("="*40)
     
-    black_wins = sum(1 for r in results if r['winner'] == 'BLACK')
-    white_wins = sum(1 for r in results if r['winner'] == 'WHITE')
-    draws = sum(1 for r in results if r['winner'] == 'DRAW')
-    unknowns = sum(1 for r in results if r['winner'] == 'UNKNOWN')
-    errors = sum(1 for r in results if r['status'] == 'error')
-    
-    logging.info(f"Total Matches: {total_matches}")
-    logging.info(f"BLACK Wins: {black_wins}")
-    logging.info(f"WHITE Wins: {white_wins}")
-    logging.info(f"Draws: {draws}")
-    if unknowns > 0:
-        logging.info(f"Unknowns (Failed to parse winner): {unknowns}")
-    logging.info(f"Errors: {errors}")
+    for w in white_engines:
+        variant_results = [r for r in results if r['white'] == w]
+        wins = sum(1 for r in variant_results if r['winner'] == 'WHITE')
+        losses = sum(1 for r in variant_results if r['winner'] == 'BLACK')
+        draws = sum(1 for r in variant_results if r['winner'] == 'DRAW')
+        avg_time = sum(float(r['w_stats'][1]) for r in variant_results if r['status'] == 'success') / len(variant_results) if variant_results else 0
+        logging.info(f"Variant {w}: Wins: {wins}, Losses: {losses}, Draws: {draws}, Avg Move Time: {avg_time:.3f}s")
 
 if __name__ == '__main__':
     import multiprocessing

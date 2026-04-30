@@ -31,3 +31,34 @@
 2026-04-30 16:50:39,690 - WHITE Wins: 6
 2026-04-30 16:50:39,690 - Draws: 0
 2026-04-30 16:50:39,690 - Errors: 0
+2026-04-30 22:29:41,900 - Starting benchmark for 4 matches using multiprocessing...
+2026-04-30 22:30:53,874 - Match 1/4 | Black: hw1/engine_black4_aggro.py vs White: hw1_11427234_v24-2.py | Winner: WHITE | Time: 71.81s
+    Black Min/Avg/Max: 0.002/0.298/0.424s
+    White Min/Avg/Max: 0.005/4.129/4.820s
+2026-04-30 22:32:43,428 - Match 2/4 | Black: hw1/engine_minimax.py vs White: hw1_11427234_v24-2.py | Winner: BLACK | Time: 181.37s
+    Black Min/Avg/Max: 0.001/0.316/0.394s
+    White Min/Avg/Max: 4.800/4.811/4.822s
+2026-04-30 22:32:52,951 - Match 3/4 | Black: hw1/engine_black2_var1.py vs White: hw1_11427234_v24-2.py | Winner: WHITE | Time: 190.89s
+    Black Min/Avg/Max: 0.001/1.050/1.758s
+    White Min/Avg/Max: 0.007/4.518/4.820s
+2026-04-30 22:37:06,786 - Starting benchmark for 4 matches using multiprocessing...
+2026-04-30 22:38:14,939 - Match 1/4 | Black: hw1/engine_black4_aggro.py vs White: hw1_11427234_v24-2.py | Winner: WHITE | Time: 68.00s
+    Black Min/Avg/Max: 0.014/0.305/0.433s
+    White Min/Avg/Max: 0.005/3.883/4.525s
+2026-04-30 22:39:14,200 - Match 2/4 | Black: hw1/engine_black2_var1.py vs White: hw1_11427234_v24-2.py | Winner: BLACK | Time: 127.27s
+    Black Min/Avg/Max: 0.011/0.929/1.718s
+    White Min/Avg/Max: 4.500/4.510/4.520s
+2026-04-30 22:40:17,808 - Match 3/4 | Black: hw1/engine_minimax.py vs White: hw1_11427234_v24-2.py | Winner: WHITE | Time: 190.88s
+    Black Min/Avg/Max: 0.017/0.318/0.409s
+    White Min/Avg/Max: 0.006/4.296/4.523s
+2026-04-30 22:41:48,544 - Match 4/4 | Black: hw1/engine_black3_var2.py vs White: hw1_11427234_v24-2.py | Winner: WHITE | Time: 281.61s
+    Black Min/Avg/Max: 0.018/0.379/0.557s
+    White Min/Avg/Max: 0.006/4.360/4.530s
+2026-04-30 22:41:48,558 - ========================================
+2026-04-30 22:41:48,558 - BENCHMARK SUMMARY
+2026-04-30 22:41:48,558 - ========================================
+2026-04-30 22:41:48,559 - Total Matches: 4
+2026-04-30 22:41:48,559 - BLACK Wins: 1
+2026-04-30 22:41:48,559 - WHITE Wins: 3
+2026-04-30 22:41:48,559 - Draws: 0
+2026-04-30 22:41:48,559 - Errors: 0
