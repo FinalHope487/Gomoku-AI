@@ -10,7 +10,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(message)s',
     handlers=[
-        logging.FileHandler("benchmark_results.log", encoding='utf-8'),
+        logging.FileHandler("v25_benchmark_results.log", encoding='utf-8'),
         logging.StreamHandler()
     ]
 )
@@ -70,17 +70,14 @@ def run_match(black_engine, white_engine):
 def main():
     # Define your engines here.
     black_engines = [
+        "hw1/engine_minimax.py",
         "hw1/engine_black2_var1.py",
         "hw1/engine_black3_var2.py",
         "hw1/engine_black4_aggro.py"
     ]
     white_engines = [
-        "hw1_11427234.py",
-        "hw1_11427234_v9.py",
-        "hw1_11427234_v20.py",
-        "hw1_11427234_v21.py",
-        "hw1_11427234_v22.py",
-        "hw1_11427234_v23.py"
+        "hw1_11427234_v24.py",
+        "hw1_11427234_v25.py"
     ]
     
     # Check if files exist

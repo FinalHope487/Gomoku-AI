@@ -131,3 +131,87 @@
 2026-04-30 15:05:21,307 - WHITE Wins: 5
 2026-04-30 15:05:21,307 - Draws: 0
 2026-04-30 15:05:21,307 - Errors: 0
+2026-04-30 15:49:55,709 - Starting benchmark for 18 matches using multiprocessing...
+2026-04-30 15:50:00,512 - Match 1/18 | Black: hw1/engine_black2_var1.py vs White: hw1_11427234.py | Winner: BLACK | Time: 1.73s
+    Black Min/Avg/Max: 0.053/0.196/0.276s
+    White Min/Avg/Max: 0.107/0.128/0.148s
+2026-04-30 15:51:23,546 - Match 2/18 | Black: hw1/engine_black2_var1.py vs White: hw1_11427234_v9.py | Winner: WHITE | Time: 84.76s
+    Black Min/Avg/Max: 0.031/0.402/0.694s
+    White Min/Avg/Max: 0.003/4.279/4.809s
+2026-04-30 15:51:23,574 - Match 3/18 | Black: hw1/engine_black2_var1.py vs White: hw1_11427234_v20.py | Winner: WHITE | Time: 84.77s
+    Black Min/Avg/Max: 0.037/0.403/0.697s
+    White Min/Avg/Max: 0.003/4.279/4.809s
+2026-04-30 15:51:27,827 - Match 4/18 | Black: hw1/engine_black3_var2.py vs White: hw1_11427234.py | Winner: BLACK | Time: 4.25s
+    Black Min/Avg/Max: 0.032/0.146/0.202s
+    White Min/Avg/Max: 0.142/0.193/0.260s
+2026-04-30 15:51:39,584 - Match 5/18 | Black: hw1/engine_black2_var1.py vs White: hw1_11427234_v21.py | Winner: WHITE | Time: 100.77s
+    Black Min/Avg/Max: 0.038/0.453/0.722s
+    White Min/Avg/Max: 0.003/4.102/4.509s
+2026-04-30 15:52:36,860 - Match 6/18 | Black: hw1/engine_black3_var2.py vs White: hw1_11427234_v9.py | Winner: WHITE | Time: 69.03s
+    Black Min/Avg/Max: 0.033/0.161/0.243s
+    White Min/Avg/Max: 0.003/4.062/4.810s
+2026-04-30 15:52:43,718 - Match 7/18 | Black: hw1/engine_black2_var1.py vs White: hw1_11427234_v23.py | Winner: WHITE | Time: 80.17s
+    Black Min/Avg/Max: 0.035/0.416/0.681s
+    White Min/Avg/Max: 0.003/4.011/4.509s
+2026-04-30 15:52:44,222 - Match 8/18 | Black: hw1/engine_black2_var1.py vs White: hw1_11427234_v22.py | Winner: WHITE | Time: 163.71s
+    Black Min/Avg/Max: 0.032/0.405/0.875s
+    White Min/Avg/Max: 0.004/4.252/4.511s
+2026-04-30 15:52:47,141 - Match 9/18 | Black: hw1/engine_black3_var2.py vs White: hw1_11427234_v20.py | Winner: WHITE | Time: 67.56s
+    Black Min/Avg/Max: 0.022/0.156/0.231s
+    White Min/Avg/Max: 0.003/4.038/4.807s
+2026-04-30 15:52:48,368 - Match 10/18 | Black: hw1/engine_black4_aggro.py vs White: hw1_11427234.py | Winner: BLACK | Time: 1.23s
+    Black Min/Avg/Max: 0.031/0.081/0.099s
+    White Min/Avg/Max: 0.118/0.144/0.161s
+2026-04-30 15:53:45,124 - Match 11/18 | Black: hw1/engine_black3_var2.py vs White: hw1_11427234_v21.py | Winner: WHITE | Time: 68.26s
+    Black Min/Avg/Max: 0.028/0.164/0.217s
+    White Min/Avg/Max: 0.003/3.825/4.511s
+2026-04-30 15:53:47,832 - Match 12/18 | Black: hw1/engine_black3_var2.py vs White: hw1_11427234_v22.py | Winner: WHITE | Time: 64.11s
+    Black Min/Avg/Max: 0.029/0.165/0.227s
+    White Min/Avg/Max: 0.003/3.814/4.510s
+2026-04-30 15:53:50,222 - Match 13/18 | Black: hw1/engine_black3_var2.py vs White: hw1_11427234_v23.py | Winner: WHITE | Time: 66.00s
+    Black Min/Avg/Max: 0.042/0.162/0.223s
+    White Min/Avg/Max: 0.003/3.776/4.507s
+2026-04-30 15:54:37,647 - Match 14/18 | Black: hw1/engine_black4_aggro.py vs White: hw1_11427234_v9.py | Winner: BLACK | Time: 109.28s
+    Black Min/Avg/Max: 0.033/0.130/0.185s
+    White Min/Avg/Max: 4.800/4.805/4.810s
+2026-04-30 15:55:30,916 - Match 15/18 | Black: hw1/engine_black4_aggro.py vs White: hw1_11427234_v21.py | Winner: WHITE | Time: 103.08s
+    Black Min/Avg/Max: 0.032/0.135/0.240s
+    White Min/Avg/Max: 0.003/4.136/4.510s
+2026-04-30 15:55:33,299 - Match 16/18 | Black: hw1/engine_black4_aggro.py vs White: hw1_11427234_v22.py | Winner: WHITE | Time: 103.08s
+    Black Min/Avg/Max: 0.033/0.135/0.191s
+    White Min/Avg/Max: 0.003/4.136/4.511s
+2026-04-30 15:56:49,141 - Match 17/18 | Black: hw1/engine_black4_aggro.py vs White: hw1_11427234_v20.py | Winner: WHITE | Time: 184.02s
+    Black Min/Avg/Max: 0.033/0.130/0.178s
+    White Min/Avg/Max: 0.003/4.569/4.814s
+2026-04-30 15:57:02,972 - Match 18/18 | Black: hw1/engine_black4_aggro.py vs White: hw1_11427234_v23.py | Winner: WHITE | Time: 145.32s
+    Black Min/Avg/Max: 0.027/0.124/0.187s
+    White Min/Avg/Max: 0.003/4.241/4.508s
+2026-04-30 15:57:02,988 - ========================================
+2026-04-30 15:57:02,988 - BENCHMARK SUMMARY
+2026-04-30 15:57:02,988 - ========================================
+2026-04-30 15:57:02,988 - Total Matches: 18
+2026-04-30 15:57:02,988 - BLACK Wins: 4
+2026-04-30 15:57:02,988 - WHITE Wins: 14
+2026-04-30 15:57:02,988 - Draws: 0
+2026-04-30 15:57:02,988 - Errors: 0
+2026-04-30 16:06:59,106 - Starting benchmark for 4 matches using multiprocessing...
+2026-04-30 16:08:02,440 - Match 1/4 | Black: hw1/engine_minimax.py vs White: hw1_11427234_v24.py | Winner: WHITE | Time: 63.21s
+    Black Min/Avg/Max: 0.051/0.119/0.158s
+    White Min/Avg/Max: 0.003/3.804/4.509s
+2026-04-30 16:08:03,004 - Match 2/4 | Black: hw1/engine_black3_var2.py vs White: hw1_11427234_v24.py | Winner: WHITE | Time: 63.76s
+    Black Min/Avg/Max: 0.037/0.153/0.223s
+    White Min/Avg/Max: 0.002/3.804/4.511s
+2026-04-30 16:08:39,195 - Match 3/4 | Black: hw1/engine_black2_var1.py vs White: hw1_11427234_v24.py | Winner: WHITE | Time: 99.96s
+    Black Min/Avg/Max: 0.049/0.418/0.672s
+    White Min/Avg/Max: 0.003/4.101/4.513s
+2026-04-30 16:08:41,583 - Match 4/4 | Black: hw1/engine_black4_aggro.py vs White: hw1_11427234_v24.py | Winner: BLACK | Time: 102.33s
+    Black Min/Avg/Max: 0.040/0.117/0.148s
+    White Min/Avg/Max: 4.500/4.504/4.512s
+2026-04-30 16:08:41,597 - ========================================
+2026-04-30 16:08:41,597 - BENCHMARK SUMMARY
+2026-04-30 16:08:41,598 - ========================================
+2026-04-30 16:08:41,598 - Total Matches: 4
+2026-04-30 16:08:41,598 - BLACK Wins: 1
+2026-04-30 16:08:41,598 - WHITE Wins: 3
+2026-04-30 16:08:41,598 - Draws: 0
+2026-04-30 16:08:41,598 - Errors: 0
