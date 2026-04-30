@@ -1,0 +1,133 @@
+2026-04-30 14:27:09,878 - Starting benchmark for 25 matches using multiprocessing...
+2026-04-30 14:27:14,144 - Match 1/25 | Black: hw1_11427234.py vs White: hw1_11427234.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:27:14,228 - Match 2/25 | Black: hw1_11427234.py vs White: hw1_11427234.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:27:14,360 - Match 3/25 | Black: hw1_11427234.py vs White: hw1_11427234.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:27:14,409 - Match 4/25 | Black: hw1_11427234.py vs White: hw1_11427234.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:27:19,903 - Match 5/25 | Black: hw1_11427234_v9.py vs White: hw1_11427234.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:27:19,983 - Match 6/25 | Black: hw1_11427234_v9.py vs White: hw1_11427234.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:27:20,013 - Match 7/25 | Black: hw1_11427234_v20.py vs White: hw1_11427234.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:27:20,134 - Match 8/25 | Black: hw1_11427234_v9.py vs White: hw1_11427234.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:27:20,161 - Match 9/25 | Black: hw1_11427234_v20.py vs White: hw1_11427234.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:27:20,198 - Match 10/25 | Black: hw1_11427234_v9.py vs White: hw1_11427234.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:27:29,192 - Match 11/25 | Black: hw1_11427234.py vs White: hw1_11427234_v9.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:27:29,245 - Match 12/25 | Black: hw1_11427234.py vs White: hw1_11427234_v20.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:27:29,245 - Match 13/25 | Black: hw1_11427234.py vs White: hw1_11427234_v20.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:27:29,471 - Match 14/25 | Black: hw1_11427234.py vs White: hw1_11427234_v20.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:27:29,506 - Match 15/25 | Black: hw1_11427234.py vs White: hw1_11427234_v20.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:27:29,537 - Match 16/25 | Black: hw1_11427234.py vs White: hw1_11427234_v9.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:27:42,362 - Starting benchmark for 25 matches using multiprocessing...
+2026-04-30 14:27:48,080 - Match 1/25 | Black: hw1_11427234.py vs White: hw1_11427234.py | Winner: BLACK | Time: 5.52s
+2026-04-30 14:27:48,208 - Match 2/25 | Black: hw1_11427234.py vs White: hw1_11427234.py | Winner: BLACK | Time: 5.59s
+2026-04-30 14:27:48,614 - Match 3/25 | Black: hw1_11427234.py vs White: hw1_11427234.py | Winner: BLACK | Time: 5.76s
+2026-04-30 14:27:48,784 - Match 4/25 | Black: hw1_11427234.py vs White: hw1_11427234.py | Winner: BLACK | Time: 5.99s
+2026-04-30 14:27:52,870 - Match 5/25 | Black: hw1_11427234_v9.py vs White: hw1_11427234.py | Winner: BLACK | Time: 10.21s
+2026-04-30 14:27:53,023 - Match 6/25 | Black: hw1_11427234_v9.py vs White: hw1_11427234.py | Winner: BLACK | Time: 10.30s
+2026-04-30 14:27:53,134 - Match 7/25 | Black: hw1_11427234_v20.py vs White: hw1_11427234.py | Winner: BLACK | Time: 10.35s
+2026-04-30 14:27:53,184 - Match 8/25 | Black: hw1_11427234_v20.py vs White: hw1_11427234.py | Winner: BLACK | Time: 10.45s
+2026-04-30 14:27:53,533 - Match 9/25 | Black: hw1_11427234_v9.py vs White: hw1_11427234.py | Winner: BLACK | Time: 10.64s
+2026-04-30 14:27:53,676 - Match 10/25 | Black: hw1_11427234_v9.py vs White: hw1_11427234.py | Winner: BLACK | Time: 10.68s
+2026-04-30 14:28:02,931 - Match 11/25 | Black: hw1_11427234.py vs White: hw1_11427234_v9.py | Winner: WHITE | Time: 20.35s
+2026-04-30 14:28:02,961 - Match 12/25 | Black: hw1_11427234.py vs White: hw1_11427234_v20.py | Winner: WHITE | Time: 20.34s
+2026-04-30 14:28:03,233 - Match 13/25 | Black: hw1_11427234.py vs White: hw1_11427234_v20.py | Winner: WHITE | Time: 20.64s
+2026-04-30 14:28:03,286 - Match 14/25 | Black: hw1_11427234.py vs White: hw1_11427234_v20.py | Winner: WHITE | Time: 20.46s
+2026-04-30 14:28:03,326 - Match 15/25 | Black: hw1_11427234.py vs White: hw1_11427234_v9.py | Winner: WHITE | Time: 20.52s
+2026-04-30 14:28:03,522 - Match 16/25 | Black: hw1_11427234.py vs White: hw1_11427234_v20.py | Winner: WHITE | Time: 20.67s
+2026-04-30 14:28:46,764 - Match 17/25 | Black: hw1_11427234_v9.py vs White: hw1_11427234_v20.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:28:46,856 - Match 18/25 | Black: hw1_11427234_v20.py vs White: hw1_11427234_v20.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:28:46,890 - Match 19/25 | Black: hw1_11427234_v9.py vs White: hw1_11427234_v20.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:28:46,951 - Match 20/25 | Black: hw1_11427234_v20.py vs White: hw1_11427234_v20.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:28:46,980 - Match 21/25 | Black: hw1_11427234_v9.py vs White: hw1_11427234_v20.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:28:47,034 - Match 22/25 | Black: hw1_11427234_v9.py vs White: hw1_11427234_v20.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:28:54,754 - Match 23/25 | Black: hw1_11427234_v9.py vs White: hw1_11427234_v9.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:29:04,617 - Match 24/25 | Black: hw1_11427234_v9.py vs White: hw1_11427234_v9.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:29:04,740 - Match 25/25 | Black: hw1_11427234_v20.py vs White: hw1_11427234_v9.py | ERROR: argument of type 'NoneType' is not a container or iterable
+2026-04-30 14:29:04,807 - ========================================
+2026-04-30 14:29:04,807 - BENCHMARK SUMMARY
+2026-04-30 14:29:04,807 - ========================================
+2026-04-30 14:29:04,807 - Total Matches: 25
+2026-04-30 14:29:04,807 - BLACK Wins: 0
+2026-04-30 14:29:04,808 - WHITE Wins: 0
+2026-04-30 14:29:04,808 - Draws: 0
+2026-04-30 14:29:04,808 - Errors: 25
+2026-04-30 14:31:03,439 - Match 17/25 | Black: hw1_11427234_v20.py vs White: hw1_11427234_v9.py | Winner: WHITE | Time: 200.70s
+2026-04-30 14:31:03,477 - Match 18/25 | Black: hw1_11427234_v9.py vs White: hw1_11427234_v20.py | Winner: WHITE | Time: 200.81s
+2026-04-30 14:31:03,588 - Match 19/25 | Black: hw1_11427234_v9.py vs White: hw1_11427234_v20.py | Winner: WHITE | Time: 200.89s
+2026-04-30 14:31:03,621 - Match 20/25 | Black: hw1_11427234_v9.py vs White: hw1_11427234_v9.py | Winner: WHITE | Time: 200.96s
+2026-04-30 14:31:03,643 - Match 21/25 | Black: hw1_11427234_v20.py vs White: hw1_11427234_v20.py | Winner: WHITE | Time: 200.90s
+2026-04-30 14:31:03,725 - Match 22/25 | Black: hw1_11427234_v9.py vs White: hw1_11427234_v20.py | Winner: WHITE | Time: 200.79s
+2026-04-30 14:31:03,732 - Match 23/25 | Black: hw1_11427234_v20.py vs White: hw1_11427234_v20.py | Winner: WHITE | Time: 200.95s
+2026-04-30 14:31:03,933 - Match 24/25 | Black: hw1_11427234_v9.py vs White: hw1_11427234_v9.py | Winner: WHITE | Time: 201.03s
+2026-04-30 14:33:06,224 - Match 25/25 | Black: hw1_11427234_v9.py vs White: hw1_11427234_v20.py | Winner: WHITE | Time: 323.29s
+2026-04-30 14:33:06,285 - ========================================
+2026-04-30 14:33:06,285 - BENCHMARK SUMMARY
+2026-04-30 14:33:06,285 - ========================================
+2026-04-30 14:33:06,286 - Total Matches: 25
+2026-04-30 14:33:06,286 - BLACK Wins: 10
+2026-04-30 14:33:06,286 - WHITE Wins: 15
+2026-04-30 14:33:06,286 - Draws: 0
+2026-04-30 14:33:06,286 - Errors: 0
+2026-04-30 14:35:03,245 - Starting benchmark for 2 matches using multiprocessing...
+2026-04-30 14:35:56,970 - Match 1/2 | Black: hw1/engine_minimax.py vs White: hw1_11427234_v9.py | Winner: WHITE | Time: 53.63s
+2026-04-30 14:37:45,127 - Match 2/2 | Black: hw1/engine_minimax.py vs White: hw1_11427234_v20.py | Winner: BLACK | Time: 161.78s
+2026-04-30 14:37:45,140 - ========================================
+2026-04-30 14:37:45,140 - BENCHMARK SUMMARY
+2026-04-30 14:37:45,140 - ========================================
+2026-04-30 14:37:45,140 - Total Matches: 2
+2026-04-30 14:37:45,140 - BLACK Wins: 1
+2026-04-30 14:37:45,140 - WHITE Wins: 1
+2026-04-30 14:37:45,140 - Draws: 0
+2026-04-30 14:37:45,140 - Errors: 0
+2026-04-30 14:40:43,100 - Starting benchmark for 2 matches using multiprocessing...
+2026-04-30 14:41:36,812 - Match 1/2 | Black: hw1/engine_minimax.py vs White: hw1_11427234_v9.py | Winner: WHITE | Time: 53.62s
+    Black Min/Avg/Max: 0.036/0.107/0.145s
+    White Min/Avg/Max: 0.002/3.221/3.807s
+2026-04-30 14:43:24,937 - Match 2/2 | Black: hw1/engine_minimax.py vs White: hw1_11427234_v20.py | Winner: BLACK | Time: 161.74s
+    Black Min/Avg/Max: 0.033/0.121/0.148s
+    White Min/Avg/Max: 3.800/3.804/3.810s
+2026-04-30 14:43:24,947 - ========================================
+2026-04-30 14:43:24,947 - BENCHMARK SUMMARY
+2026-04-30 14:43:24,947 - ========================================
+2026-04-30 14:43:24,947 - Total Matches: 2
+2026-04-30 14:43:24,947 - BLACK Wins: 1
+2026-04-30 14:43:24,947 - WHITE Wins: 1
+2026-04-30 14:43:24,947 - Draws: 0
+2026-04-30 14:43:24,947 - Errors: 0
+2026-04-30 14:48:21,481 - Starting benchmark for 2 matches using multiprocessing...
+2026-04-30 14:49:28,119 - Match 1/2 | Black: hw1/engine_minimax.py vs White: hw1_11427234_v9.py | Winner: WHITE | Time: 66.55s
+    Black Min/Avg/Max: 0.040/0.104/0.143s
+    White Min/Avg/Max: 0.002/4.031/4.807s
+2026-04-30 14:49:28,120 - Match 2/2 | Black: hw1/engine_minimax.py vs White: hw1_11427234_v20.py | Winner: WHITE | Time: 66.54s
+    Black Min/Avg/Max: 0.039/0.104/0.143s
+    White Min/Avg/Max: 0.002/4.031/4.810s
+2026-04-30 14:49:28,131 - ========================================
+2026-04-30 14:49:28,131 - BENCHMARK SUMMARY
+2026-04-30 14:49:28,131 - ========================================
+2026-04-30 14:49:28,131 - Total Matches: 2
+2026-04-30 14:49:28,131 - BLACK Wins: 0
+2026-04-30 14:49:28,131 - WHITE Wins: 2
+2026-04-30 14:49:28,131 - Draws: 0
+2026-04-30 14:49:28,131 - Errors: 0
+2026-04-30 15:02:12,276 - Starting benchmark for 5 matches using multiprocessing...
+2026-04-30 15:03:15,514 - Match 1/5 | Black: hw1/engine_minimax.py vs White: hw1_11427234_v22.py | Winner: WHITE | Time: 63.10s
+    Black Min/Avg/Max: 0.045/0.119/0.162s
+    White Min/Avg/Max: 0.003/3.797/4.511s
+2026-04-30 15:03:19,471 - Match 2/5 | Black: hw1/engine_minimax.py vs White: hw1_11427234_v20.py | Winner: WHITE | Time: 67.07s
+    Black Min/Avg/Max: 0.044/0.119/0.190s
+    White Min/Avg/Max: 0.003/4.046/4.811s
+2026-04-30 15:03:19,471 - Match 3/5 | Black: hw1/engine_minimax.py vs White: hw1_11427234_v9.py | Winner: WHITE | Time: 67.08s
+    Black Min/Avg/Max: 0.053/0.118/0.179s
+    White Min/Avg/Max: 0.003/4.047/4.809s
+2026-04-30 15:03:19,777 - Match 4/5 | Black: hw1/engine_minimax.py vs White: hw1_11427234_v21.py | Winner: WHITE | Time: 67.37s
+    Black Min/Avg/Max: 0.040/0.119/0.157s
+    White Min/Avg/Max: 0.002/3.816/4.510s
+2026-04-30 15:05:21,291 - Match 5/5 | Black: hw1/engine_minimax.py vs White: hw1_11427234_v23.py | Winner: WHITE | Time: 125.78s
+    Black Min/Avg/Max: 0.023/0.114/0.145s
+    White Min/Avg/Max: 0.003/4.059/4.508s
+2026-04-30 15:05:21,306 - ========================================
+2026-04-30 15:05:21,306 - BENCHMARK SUMMARY
+2026-04-30 15:05:21,306 - ========================================
+2026-04-30 15:05:21,306 - Total Matches: 5
+2026-04-30 15:05:21,307 - BLACK Wins: 0
+2026-04-30 15:05:21,307 - WHITE Wins: 5
+2026-04-30 15:05:21,307 - Draws: 0
+2026-04-30 15:05:21,307 - Errors: 0

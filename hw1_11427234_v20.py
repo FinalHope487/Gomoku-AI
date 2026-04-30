@@ -30,7 +30,7 @@ MAX_DEPTH       = 7     # PVS 剪枝效率高，可搜更深
 MAX_CANDIDATES  = 10    # 每層最多考慮幾個候選著（減少換取更深搜尋）
 QSEARCH_DEPTH   = 3     # 靜止搜尋額外深度
 NEIGHBOR_RADIUS = 2     # 候選著法產生半徑
-TIME_BUDGET     = 3.8   # 每步時間上限（秒），留 1.2 秒餘裕
+TIME_BUDGET     = 4.8   # 每步時間上限（秒），留 1.2 秒餘裕
 
 INF        = 10 ** 18
 WIN_SCORE  = 100_000_000
