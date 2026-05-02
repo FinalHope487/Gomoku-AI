@@ -1,8 +1,7 @@
 """
-hw1_11427234_v21.py — Threat-Adaptive Evaluation (v21: 威脅感知動態權重版)
-針對分析報告改進：放棄死板的「回合數階段」，改為在評估局面時即時偵測對手的「棋型威脅分數」。
-如果對手出現活三、衝四等嚴重威脅，瞬間大幅拉高防禦權重（1.4 ~ 1.6）全力封堵。
-若局勢安全，則自動調低防禦權重（1.2）以利己方發動進攻。
+hw1_11427234_v23-2.py — Combined Phase & Threat-Adaptive (v23-2: 彈性反擊版)
+結合 v21 (威脅感知動態權重) 與 v22 (開局高防禦階段適應) 的優點。
+此版本參數偏向彈性反擊，開局防禦適中，後期降防較快，威脅感知權重設定較低，有利於主動進攻。
 """
 import sys
 import time
@@ -24,7 +23,9 @@ MAX_DEPTH       = 7
 MAX_CANDIDATES  = 10    
 QSEARCH_DEPTH   = 3     
 NEIGHBOR_RADIUS = 2     
-TIME_BUDGET     = 4.8   # 配合 benchmark 的 4.8 秒上限，保留安全餘裕避免強制中斷
+TIME_BUDGET     = 4.5   # 配合 benchmark 確保不會強制中斷
+
+_phase_base_weight = 1.4
 
 INF        = 10 ** 18
 WIN_SCORE  = 100_000_000
@@ -80,11 +81,18 @@ def score_color(board, color: int) -> int:
 def evaluate(board, player: int) -> int:
     mine = score_color(board, player)
     opp  = score_color(board, opponent(player))
-    # 威脅感知動態防禦權重
-    if opp >= 200_000: weight = 1.6     # 對手有衝四或雙活三級別致命威脅
-    elif opp >= 50_000: weight = 1.4    # 對手有活三級別強烈威脅
-    elif opp >= 3_000: weight = 1.3     # 對手有眠三
-    else: weight = 1.25                  # 相對安全，降低防禦尋求進攻
+    
+    # 基礎權重由當前遊戲階段決定
+    weight = _phase_base_weight
+    
+    # 威脅感知：稍微提升防禦權重以維持防禦彈性
+    if opp >= 200_000:
+        weight = max(weight, 1.6)     # 對手有衝四或雙活三級別致命威脅
+    elif opp >= 50_000:
+        weight = max(weight, 1.4)     # 對手有活三級別強烈威脅
+    elif opp >= 3_000:
+        weight = max(weight, 1.2)     # 對手有眠三
+        
     return mine - int(opp * weight)
 
 def generate_candidate_moves(board, radius: int) -> list:
@@ -241,10 +249,19 @@ def init_zobrist_hash(board) -> int:
     return h
 
 def choose_move(board, my_color: int):
-    global _start_time, _time_up, _TT
+    global _start_time, _time_up, _TT, _phase_base_weight
     _start_time = time.perf_counter()
     _time_up    = False
     _TT         = {}
+
+    # 結合階段適應：隨棋子數量調整基礎防禦權重
+    total_pieces = sum(1 for row in board for c in row if c != EMPTY)
+    if total_pieces < 15:
+        _phase_base_weight = 1.4    # 開局防禦適中
+    elif total_pieces <= 40:
+        _phase_base_weight = 1.2    # 較快進入中盤彈性反擊
+    else:
+        _phase_base_weight = 1.1    # 殘局強調進攻
 
     if is_empty_board(board): return len(board) // 2, len(board) // 2
     zh = init_zobrist_hash(board); opp = opponent(my_color); best_move = None

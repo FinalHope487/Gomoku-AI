@@ -10,7 +10,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(message)s',
     handlers=[
-        logging.FileHandler("v25_benchmark_results.log", encoding='utf-8'),
+        logging.FileHandler("benchmark_results.log", encoding='utf-8'),
         logging.StreamHandler()
     ]
 )
@@ -46,6 +46,9 @@ def run_match(black_engine, white_engine):
         b_min, b_avg, b_max = get_stats(b_times)
         w_min, w_avg, w_max = get_stats(w_times)
             
+        score_match = re.search(r"WHITE score: ([\d.]+)", output)
+        white_score = score_match.group(1) if score_match else "N/A"
+            
         elapsed = time.time() - start_time
         return {
             "black": black_engine,
@@ -54,6 +57,7 @@ def run_match(black_engine, white_engine):
             "time": elapsed,
             "b_stats": (b_min, b_avg, b_max),
             "w_stats": (w_min, w_avg, w_max),
+            "white_score": white_score,
             "status": "success",
             "error": result.stderr
         }
@@ -76,7 +80,8 @@ def main():
         "hw1/engine_black4_aggro.py"
     ]
     white_engines = [
-        "hw1_11427234_v24-2.py"
+        "hw1_11427234_v9.py",
+        "hw1_11427234_v20.py"
     ]
     
     # Check if files exist
@@ -104,7 +109,7 @@ def main():
                 results.append(data)
                 completed += 1
                 if data["status"] == "success":
-                    msg = (f"Match {completed}/{total_matches} | Black: {b} vs White: {w} | Winner: {data['winner']} | Time: {data['time']:.2f}s\n"
+                    msg = (f"Match {completed}/{total_matches} | Black: {b} vs White: {w} | Winner: {data['winner']} | Score: {data['white_score']} | Time: {data['time']:.2f}s\n"
                            f"    Black Min/Avg/Max: {data['b_stats'][0]}/{data['b_stats'][1]}/{data['b_stats'][2]}s\n"
                            f"    White Min/Avg/Max: {data['w_stats'][0]}/{data['w_stats'][1]}/{data['w_stats'][2]}s")
                     logging.info(msg)
@@ -119,19 +124,47 @@ def main():
     logging.info("BENCHMARK SUMMARY")
     logging.info("="*40)
     
+    # Per-engine statistics
+    white_stats = {}
+    for r in results:
+        w = r['white']
+        if w not in white_stats:
+            white_stats[w] = {'wins': 0, 'losses': 0, 'draws': 0, 'scores': [], 'matches': 0}
+        
+        white_stats[w]['matches'] += 1
+        if r['winner'] == 'WHITE':
+            white_stats[w]['wins'] += 1
+        elif r['winner'] == 'BLACK':
+            white_stats[w]['losses'] += 1
+        elif r['winner'] == 'DRAW':
+            white_stats[w]['draws'] += 1
+            
+        if r['status'] == 'success' and r['white_score'] != 'N/A':
+            white_stats[w]['scores'].append(float(r['white_score']))
+
     black_wins = sum(1 for r in results if r['winner'] == 'BLACK')
     white_wins = sum(1 for r in results if r['winner'] == 'WHITE')
     draws = sum(1 for r in results if r['winner'] == 'DRAW')
     unknowns = sum(1 for r in results if r['winner'] == 'UNKNOWN')
     errors = sum(1 for r in results if r['status'] == 'error')
-    
+
     logging.info(f"Total Matches: {total_matches}")
     logging.info(f"BLACK Wins: {black_wins}")
     logging.info(f"WHITE Wins: {white_wins}")
     logging.info(f"Draws: {draws}")
     if unknowns > 0:
-        logging.info(f"Unknowns (Failed to parse winner): {unknowns}")
+        logging.info(f"Unknowns: {unknowns}")
     logging.info(f"Errors: {errors}")
+
+    logging.info("="*40)
+    logging.info("DETAILED WHITE ENGINE STATS")
+    logging.info("="*40)
+    for w, stats in white_stats.items():
+        total_score = sum(stats['scores'])
+        avg_score = total_score / len(stats['scores']) if stats['scores'] else 0.0
+        logging.info(f"Engine: {w}")
+        logging.info(f"  Matches: {stats['matches']} | Win/Loss: {stats['wins']}W/{stats['losses']}L/{stats['draws']}D")
+        logging.info(f"  Total Score: {total_score:.1f} | Avg Score: {avg_score:.1f}")
 
 if __name__ == '__main__':
     import multiprocessing

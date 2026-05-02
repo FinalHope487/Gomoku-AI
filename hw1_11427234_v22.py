@@ -24,7 +24,7 @@ MAX_DEPTH       = 7
 MAX_CANDIDATES  = 10    
 QSEARCH_DEPTH   = 3     
 NEIGHBOR_RADIUS = 2     
-TIME_BUDGET     = 4.5   # 配合 benchmark 確保不會強制中斷
+TIME_BUDGET     = 4.8
 _current_opp_weight = 1.5
 
 INF        = 10 ** 18
